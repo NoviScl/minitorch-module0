@@ -156,8 +156,12 @@ def zipWith(fn):
         applying fn(x, y) one each pair of elements.
 
     """
-    # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    def map_lst(ls1, ls2):
+        new_lst = []
+        for i in range(len(ls1)):
+            new_lst.append(fn(ls1[i], ls2[i]))
+        return new_lst 
+    return map_lst 
 
 
 def addLists(ls1, ls2):
@@ -182,21 +186,24 @@ def reduce(fn, start):
         fn(x_1, x_0)))`
 
     """
-    # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    def reduce_lst(lst):
+        ans = start 
+        while len(lst) > 0:
+            ans = fn(ans, lst[0])
+            lst = lst[1:]
+        return ans 
+    return reduce_lst 
 
 
 def sum(ls):
     """
     Sum up a list using :func:`reduce` and :func:`add`.
     """
-    # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    return reduce(add, 0)(ls)
 
 
 def prod(ls):
     """
     Product of a list using :func:`reduce` and :func:`mul`.
     """
-    # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    return reduce(mul, 1)(ls)
